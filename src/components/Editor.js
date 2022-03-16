@@ -45,8 +45,12 @@ export default function Editor(props) {
     <div className={`editor-container ${open ? "" : "collapsed"}`}>
       <div className="editor-title">
         {label}
-        <button className="expand-collapse-btn">
-          <FontAwesomeIcon icon={open ? faExpandAlt : faCompressAlt}/>
+        <button 
+          className="expand-collapse-btn"
+          type="button"
+          onClick={() => toggleOpen(!open)}
+          >
+            <FontAwesomeIcon icon={(open) ? faCompressAlt : faExpandAlt}/>
         </button>
       </div>
 
@@ -54,7 +58,7 @@ export default function Editor(props) {
       <CodeMirror
         value={value}
         className="code-mirror-wrapper"
-        width="29rem"
+        // width="29rem"
         height="100%"
         language={language}
         onChange={onChange}
